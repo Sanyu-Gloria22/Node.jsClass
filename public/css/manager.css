@@ -1,0 +1,53 @@
+body {
+  background: #7ed4f4;
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+form {
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+  width: 100%;
+  max-width: 400px;
+}
+
+form label {
+  font-weight: bold;
+  color: #444;
+}
+
+/* Inputs */
+form .form-control {
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  transition: 0.3s;
+}
+
+form .form-control:focus {
+  border-color: #3498db;
+  box-shadow: 0 0 6px rgba(52, 152, 219, 0.4);
+}
+
+.form-check-label {
+  color: #555;
+}
+
+.btn {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+}

@@ -1,0 +1,98 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f4f4;
+}
+
+header {
+  background: rgb(73, 1, 37);
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+.container {
+  display: flex;
+}
+
+nav {
+  width: 200px;
+  background-color: rgb(125, 12, 69);
+  height: 100vh;
+  padding: 20px;
+}
+
+nav a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  margin-bottom: 15px;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+nav a:hover {
+  background: rgb(231, 120, 176);
+}
+
+main {
+  flex-grow: 1;
+  padding: 20px;
+}
+
+.cards {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.card {
+  background: rgb(240, 158, 199);
+  flex: 1;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.card h3 {
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.table-container {
+  background: white;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+th {
+  background: rgb(73, 1, 37);
+  color: white;
+}
+
+/* Footer styling */
+footer {
+  margin-top: 40px;
+  padding: 15px;
+  background: rgb(73, 1, 37);
+  text-align: center;
+  font-size: 14px;
+  color: #555;
+  border-top: 1px solid #ddd;
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>form</title>
+  </head>
+  <body>
+    <div class="form-container">
+      <h2>Register here</h2>
+      <!--Error summary-->
+      <div id="error-summary" class="error-summary" role="alert" aria-live="positive" hidden></div>
+      
+      <form id="registration" novalidate action="/registeruser" method="post">
+        <div class="formGroup">
+          <label for="name">Name:</label> <br />
+          <br />
+          <input
+            type="text"
+            id="name"
+            name="name"
+            required
+            minilength="3"
+            autocomplete="name"
+          />
+          <div class="error-message" id="nameError"></div>
+        </div>
+
+        <div class="formGroup">
+          <label for="email">Email:</label> <br />
+          <br />
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+            autocomplete="email"
+          />
+          <div class="error-message" id="emailError"></div>
+        </div>
+
+        <div class="formGroup">
+          <label for="password">Password:</label> <br />
+          <br />
+          <input
+            type="password"
+            id="password"
+            name="password"
+            required
+            minlength="8"
+            autocomplete="new-password"
+          />
+          <div class="error-message" id="passwordError"></div>
+        </div>
+
+        <br />
+        <br />
+
+        <button type="submit">Register</button>
+      </form>
+    </div>
+  </body>
+</html>
