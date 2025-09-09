@@ -1,0 +1,53 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Manager&apos;s Dashboard
+  link(rel='stylesheet' href='/public/css/dash.css')
+header
+  h1 Mayondo Wood &amp; Furniture Company 
+.container
+  nav
+    a(href='dash.html') Home
+    a(href='stock.html') Add Stock
+    a(href='sales.html') Record Sale
+    a(href='#') Reports
+    a(href='products.html') Products
+    a(href='users.html') Users
+    a(href='#') Settings
+    a(href='index.html') SignOut
+  main
+    .cards
+      .card
+        h3 Total Stock
+        p 150 items
+      .card
+        h3 Sales Today
+        p UGX 450,000
+      .card
+        h3 Pending Deliveries
+        p 3 Orders
+    .container
+    .table-container
+      h3 Reports
+      table
+        tr
+          th Customer
+          th Product
+          th Qty
+          th Total
+          th Date
+        tr
+          td Jane
+          td Office Chair
+          td 2
+          td 315,000 UGX
+          td 2025-07-27
+        tr
+          td David
+          td Wooden Desk
+          td 1
+          td 250,000 UGX
+          td 2025-07-26
+footer.bg-white.p-4.mt-10.text-center.text-sm.text-gray-400.border-t
+  | &copy; 2025 Mayondo. All rights reserved.

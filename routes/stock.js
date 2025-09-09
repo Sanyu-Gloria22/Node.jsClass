@@ -2,22 +2,22 @@ const express = require("express");
 const router = express.Router();
 
 const stockModel = require("../models/stockModel")
-router.get("/recordstock", (req, res) => {
-  res.render("stockRecord", {title: "StockRecord page"})                               //render replaces sendFile
+router.get("/stock", (req, res) => {
+  res.render("stock", {title: "Stock page"})                               //render replaces sendFile
 });
 
-router.post("/recordstock", async (req, res) => {
+router.post("/stock", async (req, res) => {
   try {
     const stock = new stockModel(req.body)    //this keeps all the data in the stockModel
      console.log(req.body); 
     await stock.save()
   } catch (error) {
     console.error(error)
-    res.redirect("/recordstock")    
+    res.redirect("/stock")    
   }
 });
 
-router.get("stockRecord", (req, res) => {
+router.get("stock", (req, res) => {
   console.log(req.body)
   res.redirect("/dash")
 })
