@@ -56,14 +56,15 @@ router.get( "/logout", (req,res) =>{
   
 });
 
-// router.post("/logout", (req,res)) =>{
-//   req.logout((error)=>{
-//     if (error){
-//       return res.status(500).send('Error Loggingout')
-//     }
-//   })
-// }
-
+// router.get("/getuser", async (req, res) => {
+//   try {
+//       let users = await userModel.find().sort({$natural:-1});
+//       console.log(users);
+//       res.render("usertable", {users});  //this means that all items from the stockrecording are being called here
+//   } catch (error) {
+//     res.status(400).send("Unable to get data from the database.");
+//   }
+// });
 
 
 module.exports = router;

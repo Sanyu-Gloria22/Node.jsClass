@@ -5,42 +5,54 @@ const mongoose = require("mongoose");
 const passport = require('passport');
 const expressSession = require('express-session');
 const MongoStore = require('connect-mongo');
+const moment = require('moment');
 
 
 require('dotenv').config();
 const userModel = require("./models/userModel");
+
 // import routes
 //  const classRoutes = require(`./routes/classRoutes`);
+
 const authRoutes = require("./routes/authRoutes");
 const stockRoutes = require("./routes/stockRoutes");
 
+// const salesRoutes = require("/routes/saleRoutes");
+
 //2. Instantiations
+
 const app = express();
 const port = 3000;
 
 //3. Configurations
+
+app.locals.moment = moment;
+
 //setting up mongoDB configurations
 
 mongoose.connect(process.env.MONGODB_URI, {
+
   //  useNewUrlParser: true,
   //  useUnifiedTopology: true
+
 })
 .then(() => console.log(" Connected to MongoDB Atlas"))
 .catch(err => console.error(" MongoDB connection error:", err));
 
+
+//setting engine to pug
+
 app.set("view engine", "pug");
 app.set('views', path.join(__dirname, 'views'));
 
-
-//setting engine to pug
-app.set('veiw engine', 'pug');
-app.set('veiws', path.join(__dirname, 'veiws'));
-
 //4. Middleware
 //app.use(express.static('public'));
+
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: true }));    //extended helps to pass data from forms
+
 //express session configs
+
 app.use(expressSession({
   secret: process.env.SESSION_SECRET,   //this is just a secret of your application
   resave: false,         //Means we do not save the sessions And session is the moment a person walks in an application untill he lives.
@@ -80,8 +92,11 @@ passport.deserializeUser(userModel.deserializeUser());
 //5. Routes
 // //
 //app.use("/", classRoutes);
+
 app.use("/", authRoutes);
 app.use("/", stockRoutes);
+
+// app.use("/", salesRoutes);
 
 
 

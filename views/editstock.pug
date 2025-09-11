@@ -1,7 +1,7 @@
 doctype html
 head
   meta(charset='UTF-8')
-  title Stock Recording
+  title Edit Stock
   link(rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css')
   link(rel='stylesheet' href='/css/stockRecord.css')
 nav.navbar.navbar-expand-lg.bg-body-tertiary(style='background-color: #e3f2fd;' data-bs-theme='light')
@@ -14,48 +14,48 @@ nav.navbar.navbar-expand-lg.bg-body-tertiary(style='background-color: #e3f2fd;' 
         a.nav-link.active(aria-current='page' href='index.html') Home
 .section
   h2 Stock Recording
-  form(action='/recordstock' method='post')
+  form(action=`/editstock/${item._id}` method='post')
     label
       | Product Name:
-      input(type='text' name='productName' required)
+      input(type='text' name='productName', value=`${item.productName}` required)
 
     label
       | Product Type:
-      input(type='text' name='productType' required)
+      input(type='text' name='productType', value=`${item.productType}` required)
 
     label
       | Quantity:
-      input(type='number' name='quantity' required)
+      input(type='number' name='quantity', value=`${item.quantity}` required)
 
     label
       | Cost Price:
-      input(type='number' name='costPrice' required)
+      input(type='number' name='costPrice', value=`${item.costPrice}` required)
 
     label
       | Selling Price:
-      input(type='number' name='sellingPrice' required)
+      input(type='number' name='sellingPrice', value=`${item.sellingPrice}`  required)
 
     label
       | Supplier Name:
-      input(type='text' name='supplierName' required)
+      input(type='text' name='supplierName' value=`${item.supplierName}` required)
 
     label
       | Date Received:
-      input(type='date' name='dateReceived' required)
+      input(type='date' name='dateReceived', value=`${item.dateReceived}` required)
 
     label
       | Quality:
-      input(type='text' name='quality')
+      input(type='text' name='quality', value=`${item.quality}`)
 
     label
       | Color:
-      input(type='text' name='color')
+      input(type='text' name='color', value=`${item.color}`)
 
     label
       | Measurements:
-      input(type='text' name='measurements')
+      input(type='text' name='measurements', value=`${item.measurements}`)
 
-    button(type='submit' class='btn btn-primary mt-3') Add Stock
+    button(type='submit' class='btn btn-primary mt-3') Update Stock
 
 script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js')
 footer.bg-white.p-4.mt-10.text-center.text-sm.text-gray-400.border-t
