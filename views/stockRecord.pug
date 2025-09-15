@@ -1,62 +1,49 @@
-doctype html
-head
-  meta(charset='UTF-8')
-  title Stock Recording
-  link(rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css')
-  link(rel='stylesheet' href='/css/stockRecord.css')
-nav.navbar.navbar-expand-lg.bg-body-tertiary(style='background-color: #e3f2fd;' data-bs-theme='light')
-  .container-fluid
-    a.navbar-brand(href='#') MWF
-    button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarNavAltMarkup' aria-controls='navbarNavAltMarkup' aria-expanded='false' aria-label='Toggle navigation')
-      span.navbar-toggler-icon
-    #navbarNavAltMarkup.collapse.navbar-collapse
-      .navbar-nav
-        a.nav-link.active(aria-current='page' href='index.html') Home
-.section
-  h2 Stock Recording
-  form(action='/recordstock' method='post')
-    label
-      | Product Name:
-      input(type='text' name='productName' required)
+extends layout 
+block content
+  .section
+    h2 Stock Recording
+    form(action='/recordstock' method='post')
+      label
+        | Product Name:
+        input(type='text' name='productName' required)
 
-    label
-      | Product Type:
-      input(type='text' name='productType' required)
+      label
+        | Product Type:
+        input(type='text' name='productType' required)
 
-    label
-      | Quantity:
-      input(type='number' name='quantity' required)
+      label
+        | Quantity:
+        input(type='number' name='quantity' required)
 
-    label
-      | Cost Price:
-      input(type='number' name='costPrice' required)
+      label
+        | Cost Price:
+        input(type='number' name='costPrice' required)
 
-    label
-      | Selling Price:
-      input(type='number' name='sellingPrice' required)
+      label
+        | Selling Price:
+        input(type='number' name='sellingPrice' required)
 
-    label
-      | Supplier Name:
-      input(type='text' name='supplierName' required)
+      label
+        | Supplier Name:
+        input(type='text' name='supplierName' required)
 
-    label
-      | Date Received:
-      input(type='date' name='dateReceived' required)
+      label
+        | Date Received:
+        input(type='date' name='dateReceived' required)
 
-    label
-      | Quality:
-      input(type='text' name='quality')
+      label
+        | Quality:
+        input(type='text' name='quality')
 
-    label
-      | Color:
-      input(type='text' name='color')
+      label
+        | Color:
+        input(type='text' name='color')
 
-    label
-      | Measurements:
-      input(type='text' name='measurements')
+      label
+        | Measurements:
+        input(type='text' name='measurements')
 
-    button(type='submit' class='btn btn-primary mt-3') Add Stock
-
-script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js')
-footer.bg-white.p-4.mt-10.text-center.text-sm.text-gray-400.border-t
-  | &copy; 2025 Mayondo. All rights reserved.
+        button(type='submit' class='btn btn-primary mt-3') Add Stock
+  script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js')
+  footer.bg-white.p-4.mt-10.text-center.text-sm.text-gray-400.border-t
+    | &copy; 2025 Mayondo. All rights reserved.

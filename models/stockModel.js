@@ -41,10 +41,7 @@ const stockSchema = new mongoose.Schema({
   measurements :{
     type:String,
     required:true,
-  } // role:{
-  //   type:String,
-  //   required:true
-  // }
+  } 
 
 });
 

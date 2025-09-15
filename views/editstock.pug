@@ -14,7 +14,7 @@ nav.navbar.navbar-expand-lg.bg-body-tertiary(style='background-color: #e3f2fd;' 
         a.nav-link.active(aria-current='page' href='index.html') Home
 .section
   h2 Stock Recording
-  form(action=`/editstock/${item._id}` method='post')
+  form(action=`/editstock/${item._id};_method=put`, method='post')
     label
       | Product Name:
       input(type='text' name='productName', value=`${item.productName}` required)

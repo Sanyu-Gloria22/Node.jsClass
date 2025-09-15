@@ -25,7 +25,6 @@ const app = express();
 const port = 3000;
 
 //3. Configurations
-
 app.locals.moment = moment;
 
 //setting up mongoDB configurations
@@ -49,6 +48,7 @@ app.set('views', path.join(__dirname, 'views'));
 //app.use(express.static('public'));
 
 app.use(express.static(path.join(__dirname, "public")));
+app.use("/public/uploads", express.static(__dirname +"/public/uploads" ))      // helps us to upload our images and to know where our images are going to be
 app.use(express.urlencoded({ extended: true }));    //extended helps to pass data from forms
 
 //express session configs
