@@ -12,6 +12,13 @@ body {
   line-height: 1.6;
 }
 
+.button-container {
+  display: flex;
+  justify-content:space-evenly;
+  margin-top: 15px;
+}
+
+
 table {
   display: flex;
   justify-content: center;

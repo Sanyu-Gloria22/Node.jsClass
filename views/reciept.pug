@@ -1,0 +1,41 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Reciept
+  link(rel='stylesheet' href='/public/css/sales.css')
+h2.text-center Mayondo Wood and Furniture Limited
+p.text-center MWF is a B2B Wood and Furniture Company
+hr
+
+h3.text-centre Receipt 
+p Date: #{moment(sale.payment).format("DD-MM-YY")}
+P Customer: #{sale.customername}
+p Sales Agent: #{sale.salesAgent.fullName}
+
+table.table 
+  thead 
+    tr
+      th Product Type
+      th Product Name
+      th Quantity
+      th Price Per Unit
+      th Transport?
+      th Total Price
+  tbody 
+    tr
+      td #{sale.producttype}
+      td #{sale.productname}
+      td #{sale.quantity}
+      td #{sale.priceperunit}
+      td #{sale.transpor}
+      td #{sale.totalprice}
+      td #{sale.payment}
+  p Payment Method: #{(sale.paymentMethod)}
+  hr
+  h4.text-center Thank you for your Purchase
+  
+  button(onclick="window.print()" class="btn btn-primary") Print Receipt
+
+footer.bg-white.p-4.mt-10.text-center.text-sm.text-gray-400.border-t
+  | &copy; 2025 Mayondo. All rights reserved.

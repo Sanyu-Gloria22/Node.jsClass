@@ -18,6 +18,7 @@ table
       th Quality
       th Color
       th Measurements
+      td Status
       th Update 
       td Delete
   tbody
@@ -34,6 +35,11 @@ table
           td #{item.quality}
           td #{item.color}
           td #{item.measurements}
+          //- if item.quantity <= 10
+          //-   td.alert.alart-danger Low stock (#{item.quantity} left)
+          td 
+            if item.quantity <= 5
+              span.btn.btn-warning Low stock 
           td 
            a.btn.btn-warning(href=`/editstock/${item._id}`) Edit
           td

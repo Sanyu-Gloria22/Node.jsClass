@@ -17,6 +17,8 @@ table
     th Payment Method
     th Sales Agent
     th Date
+    else 
+      th reciept
   tr
     td Jean Kawa
     td Furniture
@@ -28,5 +30,11 @@ table
     td Cash
     td Brian
     td 2025-07-27
+    else 
+      td
+      button.btn.btn-primary.btn-lg(type='button') Recipt
+
+.button-container
+  button.btn.btn-secondary.btn-lg(type='button') Record Sale
 footer.bg-white.p-4.mt-10.text-center.text-sm.text-gray-400.border-t
   | &copy; 2025 Mayondo. All rights reserved.

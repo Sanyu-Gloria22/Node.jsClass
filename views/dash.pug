@@ -20,10 +20,18 @@ header
     .cards
       .card
         h3 Total Stock
-        p 150 items
+        p#PurchaseCost Timber: #{new Intl.NumberFormat().format(totalExpenseTimber.totalCost)}Shs
+        p#PurchaseCost Tables: #{new Intl.NumberFormat().format(totalExpenseTimber.totalCost)}Shs
+        p#PurchaseCost Chairs: #{new Intl.NumberFormat().format(totalExpenseTimber.totalCost)}Shs
+        p#PurchaseCost Beds: #{new Intl.NumberFormat().format(totalExpenseTimber.totalCost)}Shs
+        p#PurchaseCost poles: #{new Intl.NumberFormat().format(totalExpenseTimber.totalCost)}Shs
+      .card
+        h3 Purchase Cost
+        p 150 items  
       .card
         h3 Sales Today
-        p UGX 450,000
+        p#
+        
       .card
         h3 Pending Deliveries
         p 3 Orders

@@ -16,6 +16,7 @@ let storage = multer.diskStorage({
     cb(null,file.originalname)
   }
 })
+const uploads = multer({ storage: storage});
 
 //ensureauthenticated, ensurManager
 router.get("/recordstock", (req, res) => {
@@ -111,6 +112,60 @@ router.post("/deletestock", async (req, res)=>{
     res.status(400).send("Unable to delete item from the database")
   }
 });
+ 
+
+router.get("/dash", (req, res) =>{
+  res.render("dash");
+});
+
+
+router.post("/dash", async (req, res) =>{
+  try {
+     // expences for buying stock
+    let totalExpenseTimber = await stockModel.aggregate([
+      {$match:{productName: "timber"} },
+      {$group:{_id:"$pr0ductType",
+        totalQuantity:{$sum: "$quantity"},
+        //Cost price is unit price for one item
+        totalCost: {$sum: {$multiply: ["costPrice", "$costPrice"] } },
+      }},
+    ])
+
+    let totalExpensePoles = await stockModel.aggregate([
+      {$match:{productName: "poles"} },
+      {$group:{_id:"$pr0ductType",
+        totalQuantity:{$sum: "$quantity"},
+        //Cost price is unit price for one item
+        totalCost: {$sum: {$multiply: ["costPrice", "$costPrice"] } },
+      }},
+    ])
+
+     //Sales revenue
+     let totalRevenueChair = await salesModel.aggregate([
+      {$match:{productName: "chair"} },
+      {$group:{_id:"$pr0ductType",
+        totalQuantity:{$sum: "$quantity"},
+        //Cost price is unit price for one item
+        totalCost: {$sum: {$multiply: ["costPrice", "$costPrice"] } },
+      }},
+    ])
+    //console.log(totalExpensePoles)
+    //To avoid crushing the app if no expence have been added
+    // set default values if no expences in the DB
+    totalRevenueChair = totalRevenueChair[0]||{totalQuantity:0,totalCost}
+    res.render("dash", {
+    totalExpensePolesPoles:totalExpensePoles[0],
+    totalExpenseTimber:totalExpenseTimber[0],
+    totalRevenueChair:totalRevenueChair[0],
+    });
+    
+  } catch (error) {
+    res.status(400).send("Unable to find item from the DB")
+    console.log('Aggregation Error:',error.message)
+  }
+});
+
+
 
 
 
